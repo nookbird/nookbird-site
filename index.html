@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NookBird: the family assistant</title>
+<meta name="description" content="NookBird is a private AI assistant for Australian families: a shared calendar, reminders for each person, school emails sorted, and a short daily brief.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%23f3e9da'/%3E%3Cpath d='M18 40c0-9 7-16 16-16 6 0 10 3 12 7l6 1-5 4c0 8-7 14-15 14H18z' fill='%232f5d50'/%3E%3Ccircle cx='38' cy='31' r='2' fill='%23f3e9da'/%3E%3C/svg%3E">
+<style>
+  :root {
+    --bg: #fbf7f1;
+    --surface: #ffffff;
+    --ink: #1f2a27;
+    --muted: #5b6662;
+    --accent: #2f5d50;
+    --accent-soft: #e4eee9;
+    --warm: #c8743a;
+    --line: #e6ded2;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #141917;
+      --surface: #1b2220;
+      --ink: #eef2ef;
+      --muted: #a9b4af;
+      --accent: #8cc4b0;
+      --accent-soft: #23302c;
+      --warm: #e39a62;
+      --line: #2c3633;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: ui-rounded, "SF Pro Rounded", "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.6;
+    font-size: 17px;
+  }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 0 20px; }
+  header { padding: 28px 0 0; }
+  .brand { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 22px; letter-spacing: -0.01em; }
+  .brand svg { width: 40px; height: 40px; flex: none; }
+  .hero { padding: 56px 0 40px; display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: center; }
+  h1 { font-size: clamp(32px, 5vw, 48px); line-height: 1.12; letter-spacing: -0.02em; margin: 0 0 18px; }
+  .lead { font-size: 19px; color: var(--muted); margin: 0 0 22px; max-width: 34em; }
+  .badge { display: inline-block; background: var(--accent-soft); color: var(--accent); font-weight: 600; font-size: 14px; padding: 6px 12px; border-radius: 999px; }
+  .hero-art { display: flex; justify-content: center; }
+  .hero-art svg { width: 100%; max-width: 300px; height: auto; }
+  section { padding: 36px 0; border-top: 1px solid var(--line); }
+  h2 { font-size: 24px; letter-spacing: -0.01em; margin: 0 0 18px; }
+  .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 20px; }
+  .card h3 { margin: 0 0 6px; font-size: 18px; }
+  .card p { margin: 0; color: var(--muted); }
+  .private { background: var(--accent-soft); border-radius: 20px; padding: 28px; }
+  .private h2 { color: var(--accent); }
+  .private p { margin: 0; max-width: 40em; }
+  ul.safe { list-style: none; padding: 0; margin: 0 0 16px; display: grid; gap: 10px; }
+  ul.safe li { padding-left: 28px; position: relative; }
+  ul.safe li::before { content: ""; position: absolute; left: 4px; top: 0.55em; width: 10px; height: 10px; border-radius: 50%; background: var(--warm); }
+  .note { color: var(--muted); font-size: 15px; }
+  a { color: var(--accent); }
+  footer { padding: 28px 0 40px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
+  footer p { margin: 4px 0; }
+  @media (max-width: 720px) {
+    .hero { grid-template-columns: 1fr; padding: 36px 0 28px; gap: 24px; }
+    .hero-art { order: -1; }
+    .hero-art svg { max-width: 200px; }
+    .grid { grid-template-columns: 1fr; }
+    body { font-size: 16px; }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand" aria-label="NookBird">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <circle cx="32" cy="32" r="32" fill="var(--accent-soft)"/>
+          <path d="M18 40c0-9 7-16 16-16 6 0 10 3 12 7l6 1-5 4c0 8-7 14-15 14H18z" fill="var(--accent)"/>
+          <circle cx="38" cy="31" r="2.2" fill="var(--bg)"/>
+          <path d="M24 42c4 2 9 2 13 0" stroke="var(--bg)" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </svg>
+        NookBird
+      </div>
+    </header>
+
+    <main>
+      <div class="hero">
+        <div>
+          <h1>The family assistant that keeps everyone on the same page.</h1>
+          <p class="lead">NookBird is a private AI assistant for your household. Your family talks to it in Telegram, and it helps you keep track of who needs to be where and what's due.</p>
+          <span class="badge">Coming to Australian families in early 2027</span>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <svg viewBox="0 0 240 220">
+            <path d="M30 210V96L120 26l90 70v114z" fill="var(--surface)" stroke="var(--line)" stroke-width="3" stroke-linejoin="round"/>
+            <rect x="78" y="112" width="84" height="70" rx="36" fill="var(--accent-soft)"/>
+            <path d="M92 168c0-17 13-30 30-30 11 0 19 6 23 14l11 2-9 7c0 15-13 26-28 26H92z" fill="var(--accent)"/>
+            <circle cx="128" cy="152" r="3.5" fill="var(--bg)"/>
+            <path d="M104 172c7 4 17 4 25 0" stroke="var(--bg)" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <circle cx="182" cy="74" r="10" fill="var(--warm)" opacity="0.85"/>
+          </svg>
+        </div>
+      </div>
+
+      <section aria-labelledby="what">
+        <h2 id="what">What NookBird does</h2>
+        <div class="grid">
+          <div class="card"><h3>A shared family calendar</h3><p>Add, change and check events just by asking.</p></div>
+          <div class="card"><h3>Reminders for each person</h3><p>Hats on Thursday, permission slips on Friday, sent to the right person.</p></div>
+          <div class="card"><h3>School and club emails, sorted</h3><p>Forward them in, and NookBird picks out the dates and notices.</p></div>
+          <div class="card"><h3>A short daily brief</h3><p>A morning and evening summary for parents.</p></div>
+        </div>
+      </section>
+
+      <section aria-labelledby="private">
+        <div class="private">
+          <h2 id="private">Private by design</h2>
+          <p>NookBird runs on a computer in your home. Your family's information stays there and is never sent to us.</p>
+        </div>
+      </section>
+
+      <section aria-labelledby="children">
+        <h2 id="children">Built for families, with children in mind</h2>
+        <ul class="safe">
+          <li>Parents set up NookBird and decide who can use it. There is no public sign-up.</li>
+          <li>NookBird is an AI assistant, not a person, and it only talks about family matters.</li>
+          <li>Children see only what is about them, never health or parents-only information.</li>
+          <li>Your family's information stays on your own computer and is never sent to us.</li>
+          <li>Parents can see what NookBird has learned and correct or delete anything.</li>
+        </ul>
+        <p class="note">We handle personal information under the Australian Privacy Principles. Questions or concerns: <a href="mailto:hello@nookbird.com">hello@nookbird.com</a></p>
+      </section>
+    </main>
+
+    <footer>
+      <p>NookBird is operated by Hajar Shalaby, ABN 94 367 193 594, Victoria, Australia.</p>
+      <p>Contact: <a href="mailto:hello@nookbird.com">hello@nookbird.com</a></p>
+    </footer>
+  </div>
+</body>
+</html>
