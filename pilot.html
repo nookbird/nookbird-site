@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NookBird pilot: help us test it this term</title>
-<meta name="description" content="A few families are invited to use NookBird for real during Term 4 2026, on their own PC, and tell us what works. Join with your invitation code.">
+<title>NookBird pilot: free this term, on us</title>
+<meta name="description" content="A handful of families are invited to use NookBird for real during Term 4 2026: free, AI included, no obligation, nothing shared with us. Join with your invitation code.">
 <meta name="robots" content="noindex">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%23f3e9da'/%3E%3Cpath d='M18 40c0-9 7-16 16-16 6 0 10 3 12 7l6 1-5 4c0 8-7 14-15 14H18z' fill='%232f5d50'/%3E%3Ccircle cx='38' cy='31' r='2' fill='%23f3e9da'/%3E%3C/svg%3E">
 <style>
@@ -76,15 +76,13 @@
   .cta { display: inline-block; background: var(--accent); color: var(--bg); font-weight: 700; padding: 14px 22px; border-radius: 999px; text-decoration: none; font-size: 17px; }
   .cta:hover { filter: brightness(1.08); }
   .join { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; padding: 28px; }
-  .join ol { padding-left: 22px; }
-  .join .row { display: grid; gap: 4px; margin: 0 0 14px; max-width: 40em; }
-  .join label { font-size: 15px; color: var(--muted); }
-  .join input[type="text"], .join input[type="email"], .join input:not([type]) { font: inherit; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--bg); color: var(--ink); }
-  .join .check { grid-template-columns: auto 1fr; align-items: start; gap: 10px; }
-  .join .check label { color: var(--ink); font-size: 16px; }
-  .join .check input { margin-top: 6px; width: 18px; height: 18px; }
-  .join button.cta { border: 0; cursor: pointer; font-family: inherit; }
-  .join textarea { width: 100%; max-width: 40em; min-height: 180px; font: inherit; font-size: 15px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--bg); color: var(--ink); margin-top: 8px; }
+  .chips { list-style: none; padding: 0; margin: 4px 0 0; display: flex; flex-wrap: wrap; gap: 10px; }
+  .chips li { background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 8px 14px; font-size: 15px; font-weight: 600; color: var(--accent); }
+  .chips li::before { content: "✓ "; color: var(--warm); }
+  ol.steps { counter-reset: s; list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; max-width: 44em; }
+  ol.steps li { counter-increment: s; position: relative; padding-left: 46px; }
+  ol.steps li::before { content: counter(s); position: absolute; left: 0; top: 0.1em; width: 30px; height: 30px; border-radius: 50%; background: var(--accent); color: var(--bg); font-weight: 700; display: grid; place-items: center; font-size: 15px; }
+  .join p { max-width: 44em; }
   footer { padding: 28px 0 40px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
   footer p { margin: 4px 0; }
   @media (max-width: 720px) {
@@ -111,28 +109,53 @@
 
     <main>
       <div class="hero">
-        <span class="badge">Pilot families · invitation required</span>
-        <h1>Help us test NookBird this term.</h1>
-        <p class="lead">NookBird is a family assistant that lives on your own computer and talks to your family through Telegram. It reads the school and club emails you forward to it, works out what matters, keeps the family calendar, reminds each person about what they have, and sends the parents a short brief every morning and evening.</p>
-        <p class="lead">We are inviting a few families to use it for real during Term 4, on their own PC, and tell us what works and what doesn't. That feedback is what will make it good.</p>
+        <span class="badge">Pilot families · Term 4 2026 · invitation only</span>
+        <h1>Your family's school mail, sorted. Free this term, on us.</h1>
+        <p class="lead">NookBird is a family assistant that lives on your own computer and talks to your family through Telegram. Forward it the school and club emails and it works out what matters: dates, payments, permission slips, who it is for. It keeps the family calendar, reminds each person about what they have, and sends the parents a short brief every morning and evening.</p>
+        <p class="lead">We are inviting a handful of families to use it for real during Term 4 and tell us what works. Here is the whole deal.</p>
+        <ul class="chips" aria-label="The deal in four lines">
+          <li>Completely free, AI included</li>
+          <li>No obligation of any kind</li>
+          <li>Nothing of yours ever reaches us</li>
+          <li>Leave whenever you like</li>
+        </ul>
       </div>
 
+      <section aria-labelledby="short">
+        <h2 id="short">The short version</h2>
+        <div class="grid">
+          <div class="card"><h3>Completely free</h3><p>No charge for NookBird, and the AI it uses runs on our account: we pay for it until 31 December. Nothing to buy, no card, no catch.</p></div>
+          <div class="card"><h3>No obligation of any kind</h3><p>No contract past this term, nothing to pay after it, nothing to cancel. When the pilot ends, what comes next is a separate offer you are free to ignore.</p></div>
+          <div class="card"><h3>Your information never comes to us</h3><p>It stays on your PC. We cannot see your mail, your calendar or your chats: not during the pilot, not ever.</p></div>
+          <div class="card"><h3>Leave whenever you like</h3><p>Export everything, delete anything, or remove NookBird completely, at any time, without asking us.</p></div>
+        </div>
+      </section>
+
+      <section aria-labelledby="does">
+        <h2 id="does">What NookBird does</h2>
+        <ul class="dots">
+          <li><strong>A brief, morning and evening.</strong> 6:30 am: what's on today, what needs doing, what's new. 7:30 pm: tomorrow, open actions, the week ahead. Two minutes to read, and nothing slips.</li>
+          <li><strong>Reminders to the right person.</strong> "Bring your hat Thursday" goes to the child it concerns; the payment reminder goes to the parents. <strong>Done</strong> or <strong>Later</strong>, one tap.</li>
+          <li><strong>Answers from your own mail.</strong> "When is camp?", "how much is the incursion?", "what did the teacher say about the excursion?" Ask in plain words; it has read the email.</li>
+          <li><strong>A shared family calendar</strong> that fills itself from the school's mail, with the club's dates beside it.</li>
+        </ul>
+      </section>
+
       <section aria-labelledby="get">
-        <h2 id="get">What you get</h2>
+        <h2 id="get">What you get as a pilot family</h2>
         <div class="grid">
           <div class="card"><h3>Installed and set up with us</h3><p>On your home PC, in one session of about 45 minutes, on a call or in person.</p></div>
           <div class="card"><h3>Your family's own private bot</h3><p>Parents, and children if you like, each with their own access in Telegram.</p></div>
-          <div class="card"><h3>Briefs, reminders, a shared calendar</h3><p>And answers from your own mail: "when is camp?", "how much is the incursion?", "what did the teacher say?"</p></div>
-          <div class="card"><h3>Weekly fixes that install themselves</h3><p>You will see it improve week by week.</p></div>
+          <div class="card"><h3>Weekly fixes that install themselves</h3><p>You will see it improve week by week, often from your own feedback.</p></div>
+          <div class="card"><h3>A direct line to us</h3><p>For the whole term. If something is wrong, we hear about it and fix it.</p></div>
         </div>
-        <p class="note" style="margin-top:14px"><strong>No charge.</strong> NookBird is free during the pilot, and the AI it uses runs on our account until the end of December.</p>
       </section>
 
       <section aria-labelledby="ask">
-        <h2 id="ask">What we ask</h2>
+        <h2 id="ask">What we ask in return</h2>
+        <p>Seats are limited, so we are looking for families who mean to use it. <strong>Joining means you fully intend to use NookBird through the term as part of normal life</strong> (forward the school mail, read the briefs, press Done or Later, ask it things) <strong>and to tell us at the end what you thought.</strong> Along the way:</p>
         <ul class="dots">
-          <li>Use it as part of normal life for the rest of the term: forward school mail to it, read the briefs, press <strong>Done</strong> or <strong>Later</strong> on reminders, ask it things.</li>
-          <li>Tell us what is wrong or missing. <code>/feedback</code> in the bot, one line, is enough.</li>
+          <li>One line when something is wrong or missing. <code>/feedback</code> in the bot is enough.</li>
           <li>A 15‑minute chat with us every two weeks.</li>
           <li>Patience with rough edges. It is a pilot, not a finished product.</li>
         </ul>
@@ -142,15 +165,26 @@
         <h2 id="need">What you need</h2>
         <ul class="dots">
           <li>A <strong>Windows 11 PC</strong> at home that can <strong>stay on</strong>. NookBird works in the background; a laptop that sleeps will miss things.</li>
-          <li><strong>15 minutes before install day</strong> for two free accounts, with our step‑by‑step guide: a new Gmail address just for NookBird (so it never reads your personal inbox) and a Telegram bot (two minutes with Telegram's BotFather).</li>
-          <li>Telegram on each family member's phone.</li>
+          <li><strong>About 15 minutes before install day</strong>, with our step‑by‑step guide: a new Gmail address just for NookBird (so it never reads your personal inbox), and a forwarding rule so the school's emails arrive there on their own.</li>
+          <li>Telegram on each family member's phone. We create your family's private bot <strong>together on install day</strong>: nothing technical for you to do first.</li>
         </ul>
+      </section>
+
+      <section aria-labelledby="how">
+        <h2 id="how">How it works</h2>
+        <ol class="steps">
+          <li><strong>Send the join form</strong> with your invitation code. Two minutes.</li>
+          <li><strong>We email you the short guide</strong> within two days. You make the NookBird mailbox and set up forwarding: about 15 minutes.</li>
+          <li><strong>We email you the available times</strong> for your setup session; you pick one.</li>
+          <li><strong>Install day:</strong> about 45 minutes with us at your PC. Your family's bot is made, the family joins, the first email is read.</li>
+          <li><strong>The next morning: your first brief.</strong></li>
+        </ol>
       </section>
 
       <section aria-labelledby="private">
         <div class="private">
           <h2 id="private">Your family's information</h2>
-          <p>It stays on your PC. NookBird does not send it to us and we cannot see it. You can export everything, delete anything, or remove NookBird completely, at any time, without asking us.</p>
+          <p>It stays on your PC. NookBird does not send it to us and we cannot see it: not your mail, not your calendar, not a single message. You can export everything, delete anything, or remove NookBird completely, at any time, without asking us.</p>
           <p>The only outside service that reads it is the AI, which for the pilot runs through an account we hold: we can see how much is used, never what is said. The pilot agreement below says all of this in full; our <a href="privacy.html">privacy statement</a> covers the rest.</p>
         </div>
       </section>
@@ -163,26 +197,26 @@
       <section aria-labelledby="agreement">
         <h2 id="agreement">The pilot agreement</h2>
         <details>
-          <summary>Read the agreement (version 1, 12 October 2026)</summary>
+          <summary>Read the agreement (version 1.1, 12 October 2026)</summary>
           <div class="agreement">
             <p>Between <strong>NookBird</strong> (www.nookbird.com; "we") and <strong>your family</strong> ("you"), for the Term 4 2026 pilot. Plain words on purpose.</p>
 
             <h3>1. What the pilot is</h3>
-            <p>NookBird is a family assistant that runs on your own PC and talks to your family through your own Telegram bot. It reads the school and club mail you forward to a mailbox made for it, keeps the family calendar and reminders, and sends the parents a short brief morning and evening. You are testing an early version so that we can make it good before it goes on sale. It will have faults; finding them is the point.</p>
+            <p>NookBird is a family assistant that runs on your own PC and talks to your family through your own Telegram bot. It reads the school and club mail that arrives in a mailbox made for it, keeps the family calendar and reminders, and sends the parents a short brief morning and evening. You are testing an early version so that we can make it good before it goes on sale. It will have faults; finding them is the point.</p>
 
             <h3>2. What we provide</h3>
             <ul>
               <li>NookBird installed on your PC, set up with you, and updated through the term with weekly fixes.</li>
               <li>The AI it uses, on an account we hold and pay for, until 31 December 2026 (section 5).</li>
               <li>Help: a <code>/feedback</code> command in the bot, a short chat with us every two weeks, and a direct line to us for anything urgent.</li>
-              <li>No charge for NookBird during the pilot.</li>
+              <li>No charge of any kind during the pilot.</li>
             </ul>
 
             <h3>3. What you provide</h3>
             <ul>
               <li>A Windows 11 PC at home that stays on, with an administrator account for the install.</li>
-              <li>Two free accounts you own: a new Gmail address for NookBird's mail, and a Telegram bot made with BotFather. Our guide walks through both (about 15 minutes).</li>
-              <li>Normal use through the term and honest feedback. A one‑line <code>/feedback</code> is enough; nothing formal.</li>
+              <li>A new Gmail address you own, just for NookBird's mail, made before install day with our guide (about 15 minutes, including a forwarding rule from your own email). Your family's Telegram bot is made with you on install day, on your phone; it is yours.</li>
+              <li><strong>Your intent to use it.</strong> Pilot places are limited, so by joining you say that you mean to use NookBird through the term as part of normal life and to tell us at the end what you thought. Along the way, honest feedback: a one‑line <code>/feedback</code> is enough; nothing formal.</li>
               <li>Care with the secrets the setup gives you (the bot token, the mailbox password): they stay on your PC and are not shared.</li>
             </ul>
 
@@ -215,21 +249,9 @@
       <section aria-labelledby="join">
         <div class="join">
           <h2 id="join">Join with your invitation code</h2>
-          <p>Two minutes. Nothing is stored on this website: the form goes straight to our inbox.</p>
-          <!-- To use a Google Form instead, replace this form with a single link to it; the fields are the same. -->
-          <form id="joinform" autocomplete="on">
-            <div class="row"><label for="f-parents">Parent's name (and the second parent's, if you like)</label><input id="f-parents" name="parents" required></div>
-            <div class="row"><label for="f-email">Email</label><input id="f-email" name="email" type="email" required></div>
-            <div class="row"><label for="f-children">Children: how many, and would any use the bot themselves?</label><input id="f-children" name="children" required></div>
-            <div class="row"><label for="f-pc">The PC you would use: Windows 11? Can it stay on?</label><input id="f-pc" name="pc" required></div>
-            <div class="row"><label for="f-when">Best day or evening for the 45‑minute setup</label><input id="f-when" name="when" required></div>
-            <div class="row"><label for="f-code">Invitation code (from our message)</label><input id="f-code" name="code" required pattern="[A-Za-z0-9‑\-]{4,12}" placeholder="NB-XXXX"></div>
-            <div class="row check"><input id="f-agree" name="agree" type="checkbox" required><label for="f-agree">I have read the pilot agreement above and agree to it for my family.</label></div>
-            <p><button class="cta" type="submit">Send</button></p>
-            <textarea id="f-out" readonly hidden aria-label="The join request text, to copy if your mail app did not open"></textarea>
-          </form>
-          <p id="f-done" hidden><strong>Thank you.</strong> We have your request and will be in touch within two days with your setup date and the short account guide.</p>
-          <p class="note">Rather talk first? Email <a href="mailto:hello@nookbird.com?subject=NookBird%20pilot">hello@nookbird.com</a> with your invitation code.</p>
+          <p>Seats are limited and go in order of joining. The form takes two minutes; your answers come straight to us.</p>
+          <p><a class="cta" href="https://forms.gle/SfD4oB1xJ7KP1GMk8" target="_blank" rel="noopener">Open the join form</a></p>
+          <p class="note">You will need your invitation code from our message, and to tick that you have read the agreement above. Rather talk first? Email <a href="mailto:hello@nookbird.com?subject=NookBird%20pilot">hello@nookbird.com</a> with your invitation code.</p>
         </div>
       </section>
     </main>
@@ -239,41 +261,5 @@
       <p>Contact: <a href="mailto:hello@nookbird.com">hello@nookbird.com</a> · <a href="privacy.html">Privacy</a> · <a href="index.html">Home</a></p>
     </footer>
   </div>
-
-  <script>
-    (function () {
-      // The form service key (Web3Forms: https://web3forms.com, one key per inbox, free). Empty = fall back to the family's mail app.
-      var FORM_KEY = '';
-      var form = document.getElementById('joinform');
-      var out = document.getElementById('f-out');
-      var done = document.getElementById('f-done');
-      var v = function (id) { return document.getElementById(id).value.trim(); };
-      var bodyText = function () {
-        return [
-          'NookBird pilot: join request', '',
-          'Parents: ' + v('f-parents'), 'Email: ' + v('f-email'), 'Children: ' + v('f-children'),
-          'PC: ' + v('f-pc'), 'Best time for setup: ' + v('f-when'), 'Invitation code: ' + v('f-code'),
-          'I have read the pilot agreement (version 1, 12 October 2026) and agree to it for my family.'
-        ].join('\n');
-      };
-      var byMail = function () {
-        out.value = bodyText(); out.hidden = false;
-        window.location.href = 'mailto:hello@nookbird.com?subject=' + encodeURIComponent('NookBird pilot: ' + v('f-code')) + '&body=' + encodeURIComponent(bodyText());
-      };
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        if (!FORM_KEY) { byMail(); return; }
-        var btn = form.querySelector('button'); btn.disabled = true; btn.textContent = 'Sending…';
-        fetch('https://api.web3forms.com/submit', {
-          method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify({ access_key: FORM_KEY, subject: 'NookBird pilot: ' + v('f-code'), from_name: 'NookBird pilot page',
-            parents: v('f-parents'), email: v('f-email'), children: v('f-children'), pc: v('f-pc'), when: v('f-when'), code: v('f-code'),
-            agreed: 'Pilot agreement v1 (12 Oct 2026) accepted' })
-        }).then(function (r) { return r.ok ? r.json() : Promise.reject(r); }).then(function () {
-          form.hidden = true; done.hidden = false;
-        }).catch(function () { btn.disabled = false; btn.textContent = 'Send'; byMail(); });
-      });
-    })();
-  </script>
 </body>
 </html>
