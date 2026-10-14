@@ -272,7 +272,7 @@
             <h3>Join the waitlist</h3>
             <p>We'll be in touch when there's a place for your family, and you'll hear our prices first. Just your name and email.</p>
             <div id="waitlist-box">
-              <a class="btn outline" id="waitlist-open" data-umami-event="waitlist-open" href="mailto:hello@nookbird.com?subject=NookBird%20waitlist&amp;body=Please%20add%20my%20family%20to%20the%20NookBird%20waitlist.%0A%0AName%3A%20%0AWho%20told%20us%20about%20NookBird%20(optional)%3A%20">Join the waitlist</a>
+              <a class="btn outline" id="waitlist-open" href="mailto:hello@nookbird.com?subject=NookBird%20waitlist&amp;body=Please%20add%20my%20family%20to%20the%20NookBird%20waitlist.%0A%0AName%3A%20%0AWho%20told%20us%20about%20NookBird%20(optional)%3A%20">Join the waitlist</a>
               <p class="note" id="waitlist-note">This opens an email to us. Your name is all we need.</p>
             </div>
           </div>
@@ -335,6 +335,7 @@
       note.textContent = 'The form is a Google Form in our own Google account. It loads only when you press the button, so your browser does not contact Google before then.';
       open.addEventListener('click', function (event) {
         event.preventDefault();
+        if (window.umami && typeof window.umami.track === 'function') { window.umami.track('waitlist-open'); }
         var frame = document.createElement('iframe');
         frame.src = WAITLIST_FORM;
         frame.title = 'NookBird waitlist form';

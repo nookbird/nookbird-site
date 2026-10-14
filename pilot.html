@@ -264,7 +264,7 @@
           <p>Seats are limited and go in order of joining. The form takes two minutes; your answers come straight to us.</p>
           <p class="note">You will need your invitation code from our message, and to tick that you have read the agreement above. Rather talk first? Email <a href="mailto:hello@nookbird.com?subject=NookBird%20pilot">hello@nookbird.com</a> with your invitation code.</p>
           <div id="join-form" class="join-form">
-            <button type="button" class="cta" id="load-form" data-umami-event="pilot-form-open" aria-controls="join-form" hidden>Fill in the join form here</button>
+            <button type="button" class="cta" id="load-form" aria-controls="join-form" hidden>Fill in the join form here</button>
             <a class="cta" id="open-form" href="https://forms.gle/SfD4oB1xJ7KP1GMk8" target="_blank" rel="noopener">Open the join form</a>
             <p class="note" id="form-note" hidden>The form is a Google Form in our own Google account. It loads only when you press the button, so your browser does not contact Google before then. <a href="https://forms.gle/SfD4oB1xJ7KP1GMk8" target="_blank" rel="noopener">Open it in a new tab instead</a>.</p>
           </div>
@@ -291,6 +291,7 @@
       var formNote = document.getElementById('form-note');
       if (formNote) formNote.hidden = false;
       button.addEventListener('click', function () {
+        if (window.umami && typeof window.umami.track === 'function') { window.umami.track('pilot-form-open'); }
         var frame = document.createElement('iframe');
         frame.src = FORM;
         frame.title = 'NookBird pilot join form';
