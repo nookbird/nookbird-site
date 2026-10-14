@@ -177,6 +177,7 @@
     summary::after { transition: none; }
   }
 </style>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="32a13690-74d1-4fdc-8f93-e17fbe4ae23e" data-domains="www.nookbird.com,nookbird.com"></script>
 </head>
 <body>
   <header class="top">
@@ -334,6 +335,7 @@
       note.textContent = 'The form is a Google Form in our own Google account. It loads only when you press the button, so your browser does not contact Google before then.';
       open.addEventListener('click', function (event) {
         event.preventDefault();
+        if (window.umami && typeof window.umami.track === 'function') { window.umami.track('waitlist-open'); }
         var frame = document.createElement('iframe');
         frame.src = WAITLIST_FORM;
         frame.title = 'NookBird waitlist form';
