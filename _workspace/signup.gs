@@ -44,15 +44,51 @@ var KINDS = {
   tester: {
     tab: 'Testers',
     subject: 'Your NookBird tester application',
-    // The approved words (marketing, 17 Nov 15:50) go here when the testers page is built; TESTERS stays off until then.
-    body: null
+    // The approved words (the owner, to marketing, 17 Nov 15:50). TESTERS stays off until the page's box goes live.
+    body: [
+      'Hi,',
+      '',
+      'Thank you for applying to test NookBird in Term 1, 2027.',
+      '',
+      'Places are limited, so we have a few quick questions first. Each one tells us something we need to give your family ' +
+        'a good start; where the reason isn\'t obvious, we\'ve said why. We never share your answers. Just reply to this ' +
+        'email; it takes about five minutes.',
+      '',
+      'ABOUT YOUR FAMILY',
+      '1. Your first name, and how many children you have at school or kinder.',
+      '2. Which state you\'re in.',
+      '',
+      'ABOUT YOUR COMPUTER (NookBird runs on your own computer at home)',
+      '3. Is it Windows 11? (NookBird runs on Windows 11 only for now. To check: Start > Settings > System > About, and ' +
+        'look for "Edition" under Windows specifications.)',
+      '4. Will it usually be on? (It works best left on, so reminders and briefs arrive on time, but it doesn\'t have to ' +
+        'be on all the time.)',
+      '5. Are you the administrator of the computer you\'d use, or do you have an administrator account on it? ' +
+        '(Installing NookBird needs an administrator\'s approval.)',
+      '6. In Windows Security, what does Smart App Control say: On, Evaluation or Off? (This setting decides whether our ' +
+        'installer can run on your computer today. To check: Start > Windows Security > App & browser control > Smart ' +
+        'App Control settings.)',
+      '',
+      'AND ONE LAST THING',
+      '7. Who told you about NookBird? (Optional. NookBird grows by families telling families, and we like to thank the ' +
+        'family who told you.)',
+      '',
+      'What testing means. Testers use NookBird through the term as part of normal family life and tell us honestly what ' +
+        'works and what doesn\'t. In return you get NookBird early, help shape it, and active testers will be offered a ' +
+        'discount on their first year.',
+      '',
+      'We\'ll reply within a few days to let you know whether we have a place for your family.',
+      '',
+      'NookBird',
+      'www.nookbird.com'
+    ].join('\n')
   }
 };
 
 // An ordinary address only: letters, digits and . _ % + - before the @ (never = + - @ first, so the Sheet can never read
 // it as a formula), a plain domain after it.
 var EMAIL_RE = /^[A-Za-z0-9_][A-Za-z0-9._%+-]{0,63}@[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)*\.[A-Za-z]{2,}$/;
-var PAGES = { home: true, testers: true };
+var PAGES = { home: true, testers: true, pilot: true };
 var DAILY_EMAILS = 100;   // at most this many thank-you emails a day, whatever is sent here
 
 function doPost(e) {
