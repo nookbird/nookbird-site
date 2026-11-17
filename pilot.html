@@ -315,7 +315,7 @@
           </div>
           <form class="qs" id="questions" action="https://script.google.com/macros/s/AKfycbyRzo9djFQ3v8i_CCDcARNS9TRsoAh7wtPEB_XhzvWGUQvcg8gkDEgbe8xQqIfypQx5/exec" method="post" hidden>
             <p class="wl-thanks" id="q-thanks" role="status">Thank you, you're on our testers list.</p>
-            <p id="q-intro">Now let's get to know your family a little, so we can check NookBird is ready for your home. Places are limited, so this helps us choose. Where the reason isn't obvious, we've said why. We never share your answers.</p>
+            <p id="q-intro">Now let's get to know your family a little, so we can check NookBird is ready for your home.</p>
             <input type="hidden" name="kind" value="answers">
             <input type="hidden" name="email" id="q-email">
             <input type="hidden" name="code" id="q-code">
@@ -366,7 +366,7 @@
         document.getElementById('q-code').value = code;
         if (fromLink) {
           document.getElementById('q-thanks').textContent = 'Thank you for applying.';
-          document.getElementById('q-intro').textContent = 'Let’s get to know your family a little, so we can check NookBird is ready for your home. Where the reason isn’t obvious, we’ve said why. We never share your answers.';
+          document.getElementById('q-intro').textContent = 'Let’s get to know your family a little, so we can check NookBird is ready for your home.';
         }
         qs.hidden = false;
       }
