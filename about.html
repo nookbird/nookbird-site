@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About NookBird</title>
+<meta name="description" content="NookBird started at home, with a family buried in school emails who didn't want to hand their children's details to someone else's servers. Made in Australia.">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<style>
+  :root {
+    --bg: #fbf7f1;
+    --surface: #ffffff;
+    --ink: #1f2a27;
+    --muted: #5b6662;
+    --accent: #2f5d50;
+    --accent-soft: #e4eee9;
+    --warm: #c8743a;
+    --line: #e6ded2;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #141917;
+      --surface: #1b2220;
+      --ink: #eef2ef;
+      --muted: #a9b4af;
+      --accent: #8cc4b0;
+      --accent-soft: #23302c;
+      --warm: #e39a62;
+      --line: #2c3633;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: ui-rounded, "SF Pro Rounded", "Segoe UI", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.65;
+    font-size: 17px;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 20px; }
+  header { padding: 28px 0 0; }
+  .brand { display: inline-flex; align-items: center; gap: 12px; font-weight: 700; font-size: 22px; letter-spacing: -0.01em; color: var(--ink); text-decoration: none; }
+  .brand svg { width: 40px; height: 40px; flex: none; }
+  h1 { font-size: clamp(30px, 4.5vw, 40px); line-height: 1.15; letter-spacing: -0.02em; margin: 44px 0 8px; }
+  .lead { font-size: 19px; color: var(--muted); margin: 0 0 18px; }
+  .qa h3 { margin-top: 22px; }
+  .updated { color: var(--muted); font-size: 15px; margin: 0 0 24px; }
+  .summary { background: var(--accent-soft); border-radius: 20px; padding: 22px 26px; margin: 0 0 12px; }
+  .summary h2 { color: var(--accent); margin-top: 0; }
+  .summary ul { margin: 0; padding-left: 20px; }
+  .summary li + li { margin-top: 6px; }
+  section { padding: 26px 0 6px; border-top: 1px solid var(--line); margin-top: 26px; }
+  .summary + section { border-top: 0; margin-top: 8px; }
+  h2 { font-size: 22px; letter-spacing: -0.01em; margin: 0 0 12px; }
+  h3 { font-size: 18px; margin: 20px 0 6px; }
+  p { margin: 0 0 14px; }
+  ul { margin: 0 0 14px; padding-left: 22px; }
+  li + li { margin-top: 6px; }
+  .table-wrap { overflow-x: auto; margin: 0 0 14px; }
+  table { width: 100%; border-collapse: collapse; font-size: 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+  th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+  th { font-weight: 600; background: var(--accent-soft); }
+  tr:last-child td { border-bottom: 0; }
+  a { color: var(--accent); }
+  footer { padding: 28px 0 40px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; margin-top: 30px; }
+  footer p { margin: 4px 0; }
+  @media (max-width: 720px) {
+    body { font-size: 16px; }
+    th, td { padding: 8px 10px; font-size: 15px; }
+  }
+</style>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="32a13690-74d1-4fdc-8f93-e17fbe4ae23e" data-domains="www.nookbird.com,nookbird.com"></script>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="./" aria-label="NookBird home">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <circle cx="32" cy="32" r="32" fill="var(--accent-soft)"/>
+          <path d="M18 40c0-9 7-16 16-16 6 0 10 3 12 7l6 1-5 4c0 8-7 14-15 14H18z" fill="var(--accent)"/>
+          <circle cx="38" cy="31" r="2.2" fill="var(--bg)"/>
+          <path d="M24 42c4 2 9 2 13 0" stroke="var(--bg)" stroke-width="2" fill="none" stroke-linecap="round"/>
+        </svg>
+        NookBird
+      </a>
+    </header>
+
+    <main>
+      <h1>About NookBird</h1>
+      <p class="lead"><strong>NookBird started at home.</strong></p>
+      <p>We're a family with more than one child at school. Like most families, we were getting more school, kinder and club emails than we could keep up with: newsletters, permission slips, payments, changed times. What mattered was always in there somewhere, and it was easy to lose.</p>
+      <p>So we looked for help. Every option we found asked us to hand our family's emails, calendar and children's details to someone else's servers. We value our privacy, and we weren't comfortable with that.</p>
+      <p>So we made NookBird. It reads the emails for you, tells each person in the family what matters, and keeps your family's information at home, on your own computer.</p>
+      <p>NookBird is made in Australia, for Australian families. If you have a question or an idea, we'd love to hear it: <a href="mailto:hello@nookbird.com">hello@nookbird.com</a></p>
+    </main>
+
+    <footer>
+      <p>NookBird is made in Australia, for Australian families.</p>
+      <p><a href="about.html">About</a> · <a href="what-you-need.html">What you need</a> · <a href="help.html">Help</a> · <a href="privacy.html">Privacy</a> · <a href="./">Home</a> · <a href="mailto:hello@nookbird.com">hello@nookbird.com</a></p>
+    </footer>
+  </div>
+</body>
+</html>
