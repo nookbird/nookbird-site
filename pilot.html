@@ -301,7 +301,7 @@
       <section aria-labelledby="join">
         <div class="join">
           <h2 id="join">Apply for a place</h2>
-          <p>Places are limited. Type your email and press Apply, then answer a few quick questions about your family and your computer.</p>
+          <p id="join-intro">Places are limited. Type your email and press Apply, then answer a few quick questions about your family and your computer.</p>
           <div class="join-form">
             <form class="wl-form" id="apply-form" action="https://script.google.com/macros/s/AKfycbyRzo9djFQ3v8i_CCDcARNS9TRsoAh7wtPEB_XhzvWGUQvcg8gkDEgbe8xQqIfypQx5/exec" method="post">
               <input type="hidden" name="kind" value="tester">
@@ -373,7 +373,11 @@
       function done(text) {
         var p = document.createElement('p');
         p.className = 'wl-thanks'; p.setAttribute('role', 'status'); p.textContent = text;
-        qs.replaceWith(p); p.scrollIntoView({ block: 'center' });
+        qs.replaceWith(p);
+        // After Send (or when the answers are already in), only the thank-you stays.
+        var intro = document.getElementById('join-intro'); if (intro) intro.hidden = true;
+        note.hidden = true;
+        p.scrollIntoView({ block: 'center' });
       }
       form.addEventListener('submit', function (event) {
         event.preventDefault();
