@@ -49,7 +49,11 @@ var KINDS = {
   }
 };
 
-var EMAIL_RE = /^[^\s@<>()",;:]{1,64}@[A-Za-z0-9.-]{1,253}\.[A-Za-z]{2,}$/;
+// An ordinary address only: letters, digits and . _ % + - before the @ (never = + - @ first, so the Sheet can never read
+// it as a formula), a plain domain after it.
+var EMAIL_RE = /^[A-Za-z0-9_][A-Za-z0-9._%+-]{0,63}@[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)*\.[A-Za-z]{2,}$/;
+var PAGES = { home: true, testers: true };
+var DAILY_EMAILS = 100;   // at most this many thank-you emails a day, whatever is sent here
 
 function doPost(e) {
   var p = (e && e.parameter) || {};
@@ -65,8 +69,13 @@ function doPost(e) {
     try {
       var sheet = sheetFor(props.getProperty('SHEET_ID'), spec.tab);
       if (!alreadyThere(sheet, email)) {
-        sheet.appendRow([new Date(), email, kind, String(p.page || '').slice(0, 40)]);
-        GmailApp.sendEmail(email, spec.subject, spec.body, { from: props.getProperty('FROM'), name: 'NookBird', replyTo: props.getProperty('FROM') });
+        var page = PAGES[String(p.page || '')] ? String(p.page) : 'other';
+        // Every cell is written as plain text, never a formula.
+        var range = sheet.getRange(sheet.getLastRow() + 1, 1, 1, 5);
+        range.setNumberFormat('@');
+        var sent = underDailyCap(props) ? 'yes' : 'held (daily cap)';
+        range.setValues([[new Date().toISOString(), email, kind, page, sent]]);
+        if (sent === 'yes') GmailApp.sendEmail(email, spec.subject, spec.body, { from: props.getProperty('FROM'), name: 'NookBird', replyTo: props.getProperty('FROM') });
       }
     } finally {
       lock.releaseLock();
@@ -89,10 +98,20 @@ function sheetFor(id, tab) {
   var sheet = book.getSheetByName(tab);
   if (!sheet) {
     sheet = book.insertSheet(tab);
-    sheet.appendRow(['When', 'Email', 'Kind', 'Page']);
+    sheet.appendRow(['When (UTC)', 'Email', 'Kind', 'Page', 'Email sent']);
     sheet.setFrozenRows(1);
   }
   return sheet;
+}
+
+/** A count of today's emails in the script's own properties: past DAILY_EMAILS, the row is kept and no email is sent. */
+function underDailyCap(props) {
+  var today = new Date().toISOString().slice(0, 10);
+  var day = props.getProperty('CAP_DAY'), n = Number(props.getProperty('CAP_COUNT') || '0');
+  if (day !== today) { day = today; n = 0; }
+  if (n >= DAILY_EMAILS) return false;
+  props.setProperties({ CAP_DAY: day, CAP_COUNT: String(n + 1) });
+  return true;
 }
 
 function alreadyThere(sheet, email) {
