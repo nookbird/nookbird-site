@@ -98,6 +98,15 @@
   .wl-thanks { margin: 0; font-size: 18px; font-weight: 700; color: var(--accent); }
   .vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   .hp { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+  .qs { margin-top: 24px; max-width: 44em; }
+  .qs h3 { margin: 0 0 6px; }
+  .qs fieldset { border: 0; padding: 0; margin: 0 0 20px; }
+  .qs legend, .qs .q { font-weight: 700; margin-bottom: 6px; padding: 0; }
+  .qs label.opt { display: block; padding: 3px 0; }
+  .qs small { display: block; color: var(--muted); margin-top: 4px; }
+  .qs input[type=text], .qs input[type=number], .qs select { min-height: 44px; padding: 0 14px; border-radius: 12px; border: 1.5px solid var(--line); background: var(--surface); color: var(--ink); font: inherit; font-size: 17px; }
+  .qs input[type=text] { width: 100%; max-width: 28em; }
+  .qs input[type=number] { width: 7em; }
   @media (max-width: 720px) {
     .join { padding: 20px 14px; }
   }
@@ -213,7 +222,7 @@
       <section aria-labelledby="how">
         <h2 id="how">How it works</h2>
         <ol class="steps">
-          <li><strong>Type your email below and press Apply.</strong> We email you seven quick questions; just reply. About five minutes.</li>
+          <li><strong>Type your email below and press Apply,</strong> then answer a few quick questions. About two minutes.</li>
           <li><strong>If we have a place for your family, we email you the short guide</strong> within a few days. You make the NookBird mailbox and set up forwarding.</li>
           <li><strong>We send you the installer and a one-page guide.</strong></li>
           <li><strong>You install NookBird when it suits you.</strong> Allow about an hour. The setup page takes you through each step, including your family's bot. At the end it shows a short code: send it to us as our email explains. We check it and switch NookBird on, within 24 hours.</li>
@@ -292,7 +301,7 @@
       <section aria-labelledby="join">
         <div class="join">
           <h2 id="join">Apply for a place</h2>
-          <p>Places are limited. Type your email and press Apply, and we'll email you a few quick questions. Just reply when it suits you.</p>
+          <p>Places are limited. Type your email and press Apply, then answer a few quick questions about your family and your computer.</p>
           <div class="join-form">
             <form class="wl-form" id="apply-form" action="https://script.google.com/macros/s/AKfycbyRzo9djFQ3v8i_CCDcARNS9TRsoAh7wtPEB_XhzvWGUQvcg8gkDEgbe8xQqIfypQx5/exec" method="post">
               <input type="hidden" name="kind" value="tester">
@@ -304,6 +313,24 @@
             </form>
             <p class="note" id="apply-note">We'll send you a thank-you from hello@nookbird.com. Rather talk first? Email <a href="mailto:hello@nookbird.com?subject=NookBird%20testing">hello@nookbird.com</a>.</p>
           </div>
+          <form class="qs" id="questions" action="https://script.google.com/macros/s/AKfycbyRzo9djFQ3v8i_CCDcARNS9TRsoAh7wtPEB_XhzvWGUQvcg8gkDEgbe8xQqIfypQx5/exec" method="post" hidden>
+            <p class="wl-thanks" id="q-thanks" role="status">Thank you, you're on our testers list.</p>
+            <p id="q-intro">Now let's get to know your family a little, so we can check NookBird is ready for your home.</p>
+            <input type="hidden" name="kind" value="answers">
+            <input type="hidden" name="email" id="q-email">
+            <input type="hidden" name="code" id="q-code">
+            <fieldset><label class="q" for="q-name">Your name</label><br><input type="text" id="q-name" name="name" maxlength="80" autocomplete="name"></fieldset>
+            <fieldset><label class="q" for="q-children">How many children do you have at school or kinder? (optional)</label><br><input type="number" id="q-children" name="children" min="0" max="20" inputmode="numeric"></fieldset>
+            <fieldset><label class="q" for="q-state">Which state are you in?</label><br><select id="q-state" name="state"><option value=""></option><option>ACT</option><option>NSW</option><option>NT</option><option>QLD</option><option>SA</option><option>TAS</option><option>VIC</option><option>WA</option></select></fieldset>
+            <fieldset><legend>Is your computer Windows 11?</legend><label class="opt"><input type="radio" name="windows" value="Yes"> Yes</label><label class="opt"><input type="radio" name="windows" value="No"> No</label><label class="opt"><input type="radio" name="windows" value="Not sure"> Not sure</label><small>NookBird runs on Windows 11 only for now. To check: Start → Settings → System → About, and look for "Edition".</small></fieldset>
+            <fieldset><legend>Will it usually be on?</legend><label class="opt"><input type="radio" name="on" value="Yes, most of the time"> Yes, most of the time</label><label class="opt"><input type="radio" name="on" value="Sometimes"> Sometimes</label><label class="opt"><input type="radio" name="on" value="Rarely"> Rarely</label><small>It works best left on, so reminders and briefs arrive on time, but it doesn't have to be on all the time.</small></fieldset>
+            <fieldset><legend>Are you the administrator of this computer, or do you have an administrator account on it?</legend><label class="opt"><input type="radio" name="admin" value="Yes"> Yes</label><label class="opt"><input type="radio" name="admin" value="No"> No</label><label class="opt"><input type="radio" name="admin" value="Not sure"> Not sure</label><small>Installing NookBird needs an administrator's approval.</small></fieldset>
+            <fieldset><legend>In Windows Security, what does Smart App Control say?</legend><label class="opt"><input type="radio" name="sac" value="On"> On</label><label class="opt"><input type="radio" name="sac" value="Evaluation"> Evaluation</label><label class="opt"><input type="radio" name="sac" value="Off"> Off</label><label class="opt"><input type="radio" name="sac" value="Not sure"> Not sure</label><small>This setting decides whether our installer can run on your computer today. To check: Start → Windows Security → App &amp; browser control → Smart App Control settings.</small></fieldset>
+            <fieldset><legend>How did you hear about us? (optional)</legend><label class="opt"><input type="radio" name="heard" value="A friend or family member"> A friend or family member</label><label class="opt"><input type="radio" name="heard" value="Our school or kinder community"> Our school or kinder community</label><label class="opt"><input type="radio" name="heard" value="Facebook or other social media"> Facebook or other social media</label><label class="opt"><input type="radio" name="heard" value="An internet search"> An internet search</label><label class="opt"><input type="radio" name="heard" value="Other"> Other</label></fieldset>
+            <fieldset id="q-who-box" hidden><label class="q" for="q-who">Who told you? (optional)</label><br><input type="text" id="q-who" name="who" maxlength="80"><small>We like to thank the family who told you.</small></fieldset>
+            <button type="submit" class="cta">Send</button>
+            <p class="note">Your answers go to us only when you press Send.</p>
+          </form>
         </div>
       </section>
     </main>
@@ -314,30 +341,80 @@
     </footer>
   </div>
   <script>
-    // Apply: one email box. Nothing is sent before Apply is pressed; then the address goes to NookBird's own Google
-    // Workspace (an Apps Script web app), which keeps it in a private list and sends one email from hello@.
-    // No cookies are sent (credentials: 'omit'). Without JavaScript the form posts normally and shows a thank-you page.
+    // Applying, in two steps. Nothing is sent before Apply; then only the address goes to NookBird's own Google Workspace
+    // (an Apps Script web app), with a one-time code made here. The questions then appear; the answers go only on Send,
+    // with the same code, so only this application can answer for this address. The email's link (?e=…&c=…#questions)
+    // opens the same questions. No cookies (credentials: 'omit'). Without JavaScript, Apply posts normally and the
+    // script's own thank-you page shows the questions.
     (function () {
       var form = document.getElementById('apply-form');
       var note = document.getElementById('apply-note');
-      if (!form || !note || !window.fetch || !window.URLSearchParams || !window.FormData) return;
+      var qs = document.getElementById('questions');
+      if (!form || !note || !qs || !window.fetch || !window.URLSearchParams || !window.FormData || !window.crypto || !crypto.getRandomValues) return;
+      var who = document.getElementById('q-who-box');
+      qs.addEventListener('change', function () {
+        var picked = qs.querySelector('input[name=heard]:checked');
+        who.hidden = !(picked && picked.value === 'A friend or family member');
+        if (who.hidden) document.getElementById('q-who').value = '';
+      });
+      function newCode() {
+        var b = new Uint8Array(16); crypto.getRandomValues(b);
+        return Array.prototype.map.call(b, function (x) { return ('0' + x.toString(16)).slice(-2); }).join('');
+      }
+      function showQuestions(email, code, fromLink) {
+        document.getElementById('q-email').value = email;
+        document.getElementById('q-code').value = code;
+        if (fromLink) {
+          document.getElementById('q-thanks').textContent = 'Thank you for applying.';
+          document.getElementById('q-intro').textContent = 'Let’s get to know your family a little, so we can check NookBird is ready for your home.';
+        }
+        qs.hidden = false;
+      }
+      function done(text) {
+        var p = document.createElement('p');
+        p.className = 'wl-thanks'; p.setAttribute('role', 'status'); p.textContent = text;
+        qs.replaceWith(p); p.scrollIntoView({ block: 'center' });
+      }
       form.addEventListener('submit', function (event) {
         event.preventDefault();
         if (!form.checkValidity()) { form.reportValidity(); return; }
         var button = form.querySelector('button');
         button.disabled = true;
+        var body = new URLSearchParams(new FormData(form));
+        var code = newCode();
+        body.set('code', code);
         if (window.umami && typeof window.umami.track === 'function') { window.umami.track('pilot-apply'); }
-        fetch(form.action, { method: 'POST', mode: 'no-cors', credentials: 'omit', body: new URLSearchParams(new FormData(form)) })
+        fetch(form.action, { method: 'POST', mode: 'no-cors', credentials: 'omit', body: body })
           .then(function () {
-            var thanks = document.createElement('p');
-            thanks.className = 'wl-thanks';
-            thanks.setAttribute('role', 'status');
-            thanks.textContent = 'Thank you. Check your inbox.';
-            form.replaceWith(thanks);
-            note.textContent = 'If it isn\u2019t there in a few minutes, look in your spam folder, or email hello@nookbird.com.';
+            var email = String(body.get('email') || '').trim().toLowerCase();
+            form.remove();
+            note.textContent = 'We’ve sent you a thank-you from hello@nookbird.com. If it isn’t there in a few minutes, look in your spam folder.';
+            showQuestions(email, code, false);
+            qs.scrollIntoView({ block: 'start' });
           })
           .catch(function () { button.disabled = false; form.submit(); });
       });
+      qs.addEventListener('submit', function (event) {
+        event.preventDefault();
+        var button = qs.querySelector('button');
+        button.disabled = true;
+        if (window.umami && typeof window.umami.track === 'function') { window.umami.track('pilot-answers'); }
+        fetch(qs.action, { method: 'POST', mode: 'no-cors', credentials: 'omit', body: new URLSearchParams(new FormData(qs)) })
+          .then(function () { done('Thank you. We’ll email you within a few days to let you know whether we have a place for your family.'); })
+          .catch(function () { button.disabled = false; qs.submit(); });
+      });
+      // Opened from the email's link: the same questions for that application, unless its answers are already in.
+      var params = new URLSearchParams(location.search);
+      var e = String(params.get('e') || '').trim().toLowerCase(), c = String(params.get('c') || '');
+      if (e && /^[0-9a-f]{32}$/.test(c)) {
+        form.remove();
+        note.hidden = true;
+        var url = form.action + '?status=1&e=' + encodeURIComponent(e) + '&c=' + c;
+        fetch(url, { credentials: 'omit' }).then(function (r) { return r.json(); })
+          .then(function (j) { if (j && j.answered) { qs.hidden = false; done('Your answers are already in. Thank you.'); } else showQuestions(e, c, true); })
+          .catch(function () { showQuestions(e, c, true); })
+          .then(function () { var j = document.getElementById('join'); if (j) j.scrollIntoView({ block: 'start' }); });
+      }
     })();
   </script>
 </body>
