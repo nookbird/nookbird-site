@@ -72,7 +72,7 @@ var WAITLIST_EMAIL = {
     '',
     'If you have a question, just reply to this email.',
     '',
-    'NookBird',
+    'The NookBird team',
     'www.nookbird.com'
   ].join('\n')
 };
@@ -96,7 +96,7 @@ function testerEmail(link) {
       '',
       'If you have a question, just reply to this email.',
       '',
-      'NookBird',
+      'The NookBird team',
       'www.nookbird.com'
     ].join('\n')
   };
