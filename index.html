@@ -193,7 +193,7 @@
         <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="32" fill="var(--accent-soft)"/><path d="M18 40c0-9 7-16 16-16 6 0 10 3 12 7l6 1-5 4c0 8-7 14-15 14H18z" fill="var(--accent)"/><circle cx="38" cy="31" r="2.2" fill="var(--bg)"/><path d="M24 42c4 2 9 2 13 0" stroke="var(--bg)" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
         <span class="serif">NookBird</span>
       </a>
-      <a class="btn small" href="#waitlist">Join the waitlist</a>
+      <a class="btn small" href="pilot.html">Become a tester</a>
     </div>
   </header>
 
@@ -205,10 +205,9 @@
           <h1>The school emails, read for you. <em>Your family's information, kept at home.</em></h1>
           <p class="lead">NookBird keeps track of the school, kinder and club notices so you don't have to, and tells each person in the family what matters, in a short brief every morning and evening. It lives in your home, not in our cloud.</p>
           <div class="actions">
-            <a class="btn" href="#waitlist">Join the waitlist</a>
-            <a class="btn ghost" href="#join">How to join</a>
+            <a class="btn" href="pilot.html">Become a tester</a>
+            <a class="btn ghost" href="#notify">Notify me when it's ready</a>
           </div>
-          <p class="note tester-link">Want early access? <a href="pilot.html">Become a tester in Term 1, 2027 &rsaquo;</a></p>
         </div>
 
         <div class="phone-col">
@@ -268,17 +267,17 @@
 
     <section class="join" id="join" aria-labelledby="join-title">
       <div class="wrap">
-        <h2 id="join-title">NookBird is shared from family to family.</h2>
-        <p class="intro">Most families hear about it from a friend who already uses it. We let new families in a few at a time, so every one gets a proper setup and a good first week.</p>
+        <h2 id="join-title">Two ways to get NookBird</h2>
+        <p class="intro">We're working hard to open NookBird to every family in Term 2, 2027. Until then, a small group of families is testing it with us.</p>
         <div class="cards">
-          <div class="card invite">
-            <h3>Starting in Term 1, 2027</h3>
-            <p>The first families start in Term 1, 2027, in a small group. More families can join from Term 2. Families on the waitlist are asked first.</p>
-            <p>If a NookBird family told you about us, say who when you join the waitlist. Friends of NookBird families are among the first we contact.</p>
+          <div class="card invite" id="testers">
+            <h3>Become a tester</h3>
+            <p>Start using NookBird early and help shape it. Places are limited. Testing runs until the end of Term 1, 2027. You'll need a Windows 11 computer at home.</p>
+            <p><a class="btn" href="pilot.html">Apply to be a tester &rsaquo;</a></p>
           </div>
-          <div class="card wait" id="waitlist">
-            <h3>Join the waitlist</h3>
-            <p>We'll be in touch when there's a place for your family, and you'll hear our prices first. Just your email.</p>
+          <div class="card wait" id="notify">
+            <h3>Tell me when it's ready</h3>
+            <p>Not ready to test? Leave your email and we'll tell you when NookBird is ready for every family, with our prices.</p>
             <div id="waitlist-box">
               <form class="wl-form" id="waitlist-form" action="https://script.google.com/macros/s/AKfycbyRzo9djFQ3v8i_CCDcARNS9TRsoAh7wtPEB_XhzvWGUQvcg8gkDEgbe8xQqIfypQx5/exec" method="post">
                 <input type="hidden" name="kind" value="waitlist">
@@ -286,9 +285,9 @@
                 <label class="vh" for="wl-email">Your email address</label>
                 <input class="wl-email" id="wl-email" type="email" name="email" required maxlength="254" autocomplete="email" placeholder="Your email address">
                 <div class="hp" aria-hidden="true"><label>Leave this empty <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
-                <button class="btn" type="submit">Join</button>
+                <button class="btn" type="submit">Notify me</button>
               </form>
-              <p class="note" id="waitlist-note">We'll send you a thank-you from hello@nookbird.com.</p>
+              <p class="note" id="waitlist-note">We'll send you a short confirmation from hello@nookbird.com.</p>
             </div>
           </div>
         </div>
@@ -313,7 +312,7 @@
           </details>
           <details>
             <summary>How much does it cost?</summary>
-            <p>A small number of early places in Term 1 are free or at a reduced price. We'll announce our prices before Term 2. Families on the waitlist hear first.</p>
+            <p>We'll announce our prices before NookBird is ready for every family, and if you've asked us to notify you, you'll hear first.</p>
           </details>
           <details>
             <summary>Why a few families at a time?</summary>
@@ -339,7 +338,7 @@
   </footer>
 
   <script>
-    // The waitlist: one email box. Nothing is sent before Join is pressed; then the address goes to NookBird's own
+    // "Tell me when it's ready" (kind=waitlist inside): one email box. Nothing is sent before Notify me is pressed; then the address goes to NookBird's own
     // Google Workspace (an Apps Script web app), which keeps it in a private list and sends one email from hello@.
     // No cookies are sent (credentials: 'omit'). Without JavaScript the form posts normally and shows a thank-you page.
     (function () {
@@ -357,7 +356,7 @@
             var thanks = document.createElement('p');
             thanks.className = 'wl-thanks';
             thanks.setAttribute('role', 'status');
-            thanks.textContent = 'Thank you. Check your inbox.';
+            thanks.textContent = 'Thank you. We\u2019ll email you when NookBird is ready. Check your inbox for a confirmation.';
             form.replaceWith(thanks);
             note.textContent = 'If it isn\u2019t there in a few minutes, look in your spam folder, or email hello@nookbird.com.';
           })

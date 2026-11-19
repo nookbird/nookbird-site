@@ -50,27 +50,21 @@ var CHOICES = {
     'An internet search', 'Other']
 };
 
+/** "Tell me when it's ready" (kind 'waitlist' inside): the confirmation approved by the owner on 19 Nov 2026. */
 var WAITLIST_EMAIL = {
-  subject: "You're on the NookBird list",
+  subject: "We'll tell you when NookBird is ready",
   body: [
     'Hi,',
     '',
-    'Thank you for joining the NookBird waitlist.',
+    'Thank you for asking to hear from us. We\'re working hard to open NookBird to every family in Term 2, 2027. ' +
+      'We\'ll email you when it\'s ready.',
     '',
-    'What happens next. A small group of families starts using NookBird in Term 1, 2027. A few places are free, and the ' +
-      'rest are at a reduced price. We\'ll email you as places open, in the order families joined, and friends of NookBird ' +
-      'families are among the first we ask.',
-    '',
-    'What you\'ll need. A Windows 11 computer at home, ideally left on, and Telegram on each family member\'s phone. ' +
-      'Because NookBird is a private app, it runs on your own computer, never on our servers. For now it supports ' +
-      'Windows 11 computers only; we plan to add support for more. If that doesn\'t fit your home yet, reply and tell us; ' +
-      'we\'d like to know.',
+    'Want it sooner? We\'re looking for a small group of families to test NookBird now. Places are limited: ' +
+      'www.nookbird.com/pilot.html',
     '',
     'Who told you about NookBird? Just reply and tell us; we like to thank the family who did.',
     '',
-    'Know another family who\'d like it? Forward them www.nookbird.com.',
-    '',
-    'If you have a question, just reply to this email.',
+    'To stop hearing from us, reply "remove me".',
     '',
     'The NookBird team',
     'www.nookbird.com'
@@ -133,7 +127,7 @@ function doPost(e) {
   if (kind === 'answers') return page(outcome === 'answered' ? '<h1>Thank you.</h1><p>We\'ll email you within a few days to let you know whether we have a place for your family.</p>'
     : outcome === 'already' ? '<h1>Your answers are already in. Thank you.</h1>'
     : '<h1>Thank you.</h1><p>If you applied and this was your first time answering, we have your answers. If not, just reply to our email.</p>');
-  return page('<h1>Thank you. Check your inbox.</h1>');
+  return page('<h1>Thank you. We\'ll email you when NookBird is ready.</h1><p>Check your inbox for a confirmation.</p>');
 }
 
 /** ?status=1&e=<email>&c=<code>: whether this application's answers are in (for the page opened from the email's link). */
